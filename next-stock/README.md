@@ -1,10 +1,22 @@
 # NextStock
 
+
+This is the solution for the Frontend Excercise
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
 ## Development server
+ - Run `npm i` to install all the dependencies
+ - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Deployment in Docker 
+
+There is a option to deploy the app inside a docker container, for this:
+ - Run `./build.sh` to build the image
+ - Run `docker-compose up -d ` to run the container
+
+then you should navigate to the `http://localhost:4200/` where the Nginx is serving
 
 ## Code scaffolding
 
