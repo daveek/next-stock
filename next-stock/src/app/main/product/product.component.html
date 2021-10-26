@@ -1,1 +1,18 @@
-<p>product works!</p>
+<mat-card class="pr-card" [class.mat-elevation-z10]="true">
+  <mat-card-header></mat-card-header>
+  <img mat-card-image src="./assets/images/{{productData?.code}}.jpg" alt="product-{{ productData?.code }}">
+  <mat-card-content>
+    <p class="pr-code">{{ productData?.code }}</p>
+    <mat-card-title>{{ productData?.name }}</mat-card-title>
+    <p class="pr-price">{{ productData?.price }} € </p>
+    <div class="size-container">
+        <div *ngFor="let item of productData?.size_stock | keyvalue">
+          <p>{{item.key}}: <span>{{item.value}}</span></p>
+        </div>
+    </div>
+    <p>Stokout: {{ productData?.stockout_rate | percent }}</p>
+    <p>Wh coverage: {{ evalWhCover(productData?.wh_coverage) }}</p>
+
+  </mat-card-content>
+  <mat-card-actions> </mat-card-actions>
+</mat-card>

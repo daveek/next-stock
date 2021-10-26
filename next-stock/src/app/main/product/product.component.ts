@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  @Input() productData: Product | null | undefined;
+  constructor() {
+    // Intentded
+   }
 
   ngOnInit(): void {
+    // Intented
+  }
+
+  public evalWhCover(cover: any): string {
+    if (cover <= 0.5) {
+        return 'Very Low';
+    } else if (cover <= 0.75) {
+      return 'Good';
+    } else if (cover > 0.75) {
+      return 'Excellent';
+    }
+
+    return 'No data';
   }
 
 }

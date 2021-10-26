@@ -1,0 +1,32 @@
+.pr-card {
+  margin: 20px;
+  max-width: 400px;
+  border: 1px solid darkgrey;
+  border-radius: 12px;
+}
+.pr-card:hover {
+  opacity: 0.7;
+  background-color: rgba($color: #989da1, $alpha: 0.7);
+  cursor: pointer;
+}
+
+.pr-code {
+  font-size: 11px;
+}
+
+.pr-price {
+  color: rgb(58, 57, 57);
+}
+
+.size-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.pr-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

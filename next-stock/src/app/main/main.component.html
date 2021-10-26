@@ -1,1 +1,4 @@
-<p>main works!</p>
+<div class="products-container">
+    <app-product *ngFor="let product of productsList"
+     [productData]="product"></app-product>
+</div>
