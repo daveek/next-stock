@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   public evalWhCover(cover: any): string {
     if (cover <= 0.5) {
         return 'Very Low';
-    } else if (cover <= 0.75) {
+    } else if (cover <= 0.75 && cover > 0.5) {
       return 'Good';
     } else if (cover > 0.75) {
       return 'Excellent';

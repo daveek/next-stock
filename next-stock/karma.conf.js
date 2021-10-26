@@ -28,8 +28,9 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/next-stock'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        { type: 'text' },
+        { type: 'text-summary' },
+        { file: 'coverage.txt' }
       ]
     },
     reporters: ['progress', 'kjhtml'],
@@ -42,7 +43,7 @@ module.exports = function (config) {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
         flags: [
-          '--no-sandbox', // required to run without privileges in docker
+          '--no-sandbox',
           '--no-watch',
           '--no-progress',
           '--headless',

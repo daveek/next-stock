@@ -22,5 +22,14 @@ export class MainComponent implements OnInit {
       productIter = element;
       this.productsList[iter] = productIter;
     });
+
+    /*** Method to order the products by Sales Ranking ***/
+    this.orderProductsBySalesRanking();
+  }
+
+  public orderProductsBySalesRanking(): void {
+
+    this.productsList.sort((a, b) => a?.sales_ranking - b?.sales_ranking )
+
   }
 }
