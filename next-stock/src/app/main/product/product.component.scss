@@ -37,7 +37,9 @@
 }
 
 .pr-price {
-  color: rgb(58, 57, 57);
+  font-size: 16px;
+  font-weight: 600;
+  color: #c2185b;
 }
 
 .size-container {
@@ -51,6 +53,14 @@
 .pr-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+.is-good {
+  color: #18c21d;
+}
+
+.not-good {
+  color: #c21818;
 }
 
 // Managing of Hover in Touch Devices Screens

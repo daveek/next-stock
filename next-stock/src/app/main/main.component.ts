@@ -42,12 +42,13 @@ export class MainComponent implements OnInit {
 
   comfirmProduct(code: number): void {
     const dialogRef = this.dialog.open(ConfirmationComponent, {
-      width: '15%'
+      width: '15%',
+      data: code
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'accept') {
-        console.log(`Confirmed Logout`);
+        console.log(`Product Marked as Completed`);
         this.processProduct(code);
       }
     });

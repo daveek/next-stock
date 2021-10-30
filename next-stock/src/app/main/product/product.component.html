@@ -3,14 +3,17 @@
   <mat-card-content>
     <p class="pr-code">{{ productData?.code }}</p>
     <mat-card-title>{{ productData?.name }}</mat-card-title>
-    <p class="pr-price">{{ productData?.price }} € </p>
+    <p class="pr-price" color="primary">{{ productData?.price }} € </p>
     <div class="size-container">
         <div *ngFor="let item of productData?.size_stock | keyvalue">
           <p>{{item.key}}: <span>{{item.value}}</span></p>
         </div>
     </div>
     <p>Stockout: {{ productData?.stockout_rate | percent }}</p>
-    <p>Wh coverage: {{ evalWhCover(productData?.wh_coverage) }}</p>
+    <mat-progress-bar color="warn" mode="determinate" value="{{convertPercent()}}"></mat-progress-bar>
+    <br>
+    <p>Wh coverage: <span [ngClass]="{'is-good': isGood(),
+    'not-good': isNotGood()}">{{ evalWhCover(productData?.wh_coverage) }}</span></p>
 
   </mat-card-content>
   <mat-card-actions> </mat-card-actions>
