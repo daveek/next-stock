@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import  productsJson from '../../assets/data/products.json';
 import { Product } from '../shared/models/product';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +12,8 @@ import { Product } from '../shared/models/product';
 export class MainComponent implements OnInit {
 
   productsList: Array<Product> = new Array<Product>();
-  constructor() {
+  constructor(
+    private readonly dialog: MatDialog,) {
     // Intended
    }
 
@@ -35,6 +38,19 @@ export class MainComponent implements OnInit {
 
   public processProduct(code: number): void {
     this.productsList = this.productsList.filter( item => item.code !== code);
+  }
+
+  comfirmProduct(code: number): void {
+    const dialogRef = this.dialog.open(ConfirmationComponent, {
+      width: '15%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'accept') {
+        console.log(`Confirmed Logout`);
+        this.processProduct(code);
+      }
+    });
   }
 
 }

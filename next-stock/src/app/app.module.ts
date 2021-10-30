@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ProductComponent } from './main/product/product.component';
+import { ConfirmationComponent } from './main/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    ProductComponent
+    ProductComponent,
+    ConfirmationComponent
   ],
   imports: [
     MaterialsModule,
