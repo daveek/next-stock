@@ -32,4 +32,9 @@ export class MainComponent implements OnInit {
     this.productsList.sort((a, b) => a?.sales_ranking - b?.sales_ranking )
 
   }
+
+  public processProduct(code: number): void {
+    this.productsList = this.productsList.filter( item => item.code !== code);
+  }
+
 }

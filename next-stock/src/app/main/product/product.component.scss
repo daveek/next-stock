@@ -4,10 +4,32 @@
   border: 1px solid darkgrey;
   border-radius: 12px;
 }
-.pr-card:hover {
+
+.pr-card:hover, .pr-card:active {
   opacity: 0.7;
   background-color: rgba($color: #989da1, $alpha: 0.7);
   cursor: pointer;
+}
+
+.pr-card:hover + .hide-hover {
+  display: block !important;
+}
+
+.pr-card:active + .hide-hover {
+  display: block !important;
+}
+
+.hide-hover {
+  display: none;
+  position: absolute;
+  top: 300px;
+  margin-left: 110px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba($color: #bdc2c7, $alpha: 0.5);
+  color: #000;
+  border: 2px solid #fff;
+  border-radius: 10px;
 }
 
 .pr-code {
@@ -29,4 +51,11 @@
 .pr-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+// Managing of Hover in Touch Devices Screens
+@media(hover: hover) and (pointer: fine) {
+    .pr-card:hover + .hide-hover {
+      display: block !important;
+    }
 }

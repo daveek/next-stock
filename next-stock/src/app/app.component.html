@@ -1,2 +1,13 @@
-<h1>Top Stock Review</h1>
-<router-outlet></router-outlet>
+<div class="full-container">
+  <mat-toolbar bdir="start" color="primary" role="banner">
+    <h1>Top Stock Review</h1>
+  </mat-toolbar>
+  <mat-drawer-container class="container" autosize>
+    <mat-drawer mode="side" opened="false">
+      <p>somthing here</p>
+    </mat-drawer>
+    <mat-drawer-content role="main">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
