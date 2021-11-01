@@ -4,7 +4,7 @@ import { Product, Size } from 'src/app/shared/models/product';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProductComponent } from './product.component';
 
-fdescribe('ProductComponent', () => {
+describe('ProductComponent', () => {
 
   const PRODUCT_MOCK_1: Product = {
     code: 123,

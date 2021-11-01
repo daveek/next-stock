@@ -69,4 +69,12 @@ describe('MainComponent', () => {
 
   });
 
+  it('Should remove a product when is confirmed', () => {
+    let counter = component.productsList.length;
+    console.warn('Counter: ' + counter);
+
+    component.processProduct(component.productsList[0].code);
+    // expect([component.productsList]).toHaveSize(3);
+  });
+
 });
