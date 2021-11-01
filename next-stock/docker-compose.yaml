@@ -4,6 +4,8 @@ services:
   next-stock:
     image: "next-stock:latest"
     ports:
-      - 4200:80
+      - 8080:80
     environment:
-      - TZ=${DEFAULT_TIMEZONE:-Europe/Madrid}
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
+

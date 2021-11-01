@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Product } from '../shared/models/product';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { MainComponent } from './main.component';
 
 const PRODUCT_MOCK_1: Product = {
@@ -42,6 +42,7 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatDialogModule],
       declarations: [ MainComponent ]
     })
     .compileComponents();

@@ -9,12 +9,15 @@ import { Product } from 'src/app/shared/models/product';
 export class ProductComponent implements OnInit {
 
   @Input() productData: Product | null | undefined;
+
+  stockRatePercent: number = 0;
+
   constructor() {
     // Intentded
    }
 
   ngOnInit(): void {
-    // Intented
+    // Intended
   }
 
   public evalWhCover(cover: any): string {
@@ -29,16 +32,16 @@ export class ProductComponent implements OnInit {
     return 'No data';
   }
 
-  isGood(): boolean {
-    return this.productData!.wh_coverage > 0.5;
+  public isGood(): boolean {
+    return (this.productData!.wh_coverage > 0.5);
   }
 
-  isNotGood(): boolean {
-    return this.productData!.wh_coverage <= 0.5;
+  public isNotGood(): boolean {
+    return (this.productData!.wh_coverage <= 0.5);
   }
 
   convertPercent(): number {
-    return this.productData!.stockout_rate*100;
+    return this.productData!.stockout_rate * 100;
   }
 
 }

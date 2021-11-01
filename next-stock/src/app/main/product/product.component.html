@@ -10,7 +10,7 @@
         </div>
     </div>
     <p>Stockout: {{ productData?.stockout_rate | percent }}</p>
-    <mat-progress-bar color="warn" mode="determinate" value="{{convertPercent()}}"></mat-progress-bar>
+    <mat-progress-bar color="warn" mode="determinate" value="{{ productData?.stockout_rate }}"></mat-progress-bar>
     <br>
     <p>Wh coverage: <span [ngClass]="{'is-good': isGood(),
     'not-good': isNotGood()}">{{ evalWhCover(productData?.wh_coverage) }}</span></p>
