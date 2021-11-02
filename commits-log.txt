@@ -1,0 +1,65 @@
+commit 7d8af41b51cf60e4306ce958b1f769a66b97f7f6
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Mon Nov 1 15:35:54 2021 +0100
+
+    README last words
+
+commit 2292438ca6d77d21fb4cf4391f5c32b12206660b
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Mon Nov 1 15:19:31 2021 +0100
+
+    Some more incursion in products and main tests
+
+commit e1a6d49081813ffa2f4b6395afea193b54eaccbb
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Mon Nov 1 11:48:35 2021 +0100
+
+    Configuring Docker to deployment
+
+commit d6853085d6b1e6060478f3c083f355f063e4b185
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Sat Oct 30 18:14:09 2021 +0200
+
+    product styles , progress bar, confirmation styles changed
+
+commit b9d087765b44e83f72ee67a5208f165262bb4267
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Sat Oct 30 14:00:13 2021 +0200
+
+    New Confirmation Component and Indigo Material Design Styles
+
+commit 2d3de38b905a8fbdffc142f438fd31de963a46bf
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Sat Oct 30 11:30:32 2021 +0200
+
+    Procesing product delete from report, hover management with mediaqueries
+
+commit 441270c73a9334f1472389233e6b8c66262d7a5a
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Tue Oct 26 20:44:06 2021 +0200
+
+    Tests added for main and product components, build script updated, karma coverage config changed
+
+commit 4aba9dc1c678adb8879d040e894ac4a13adaea63
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Tue Oct 26 17:32:18 2021 +0200
+
+    Deleting old files
+
+commit 896479dfb5ed04f8fe0715c4db8a0fd20fa0f333
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Tue Oct 26 17:31:31 2021 +0200
+
+    New main component, routing and product consumes data, initial population
+
+commit e375c38c2e5bc46fae7003dd51e34de8f9cbf502
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Thu Oct 21 12:29:27 2021 +0200
+
+    Rearrenging assets, creating new components/Architecture, new model Product and karma ChromeHeadless config
+
+commit 166c5b4ae29e50b6df89f9b79ba6d44989a99c17
+Author: daveek <dave.rojasuzcategui@thalesgroup.com>
+Date:   Wed Oct 20 13:14:55 2021 +0200
+
+    Init angular app, rearrenged assets
