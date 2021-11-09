@@ -7,6 +7,8 @@ RUN rm -rf /usr/share/nginx/html/*
 
 USER nginx
 
+EXPOSE 8080
+
 ## Copy our default nginx config
 COPY --chown=nginx:nginx nginx/default.conf /etc/nginx/conf.d/
 
