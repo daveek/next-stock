@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
 
   comfirmProduct(code: number): void {
     const dialogRef = this.dialog.open(ConfirmationComponent, {
-      width: '15%',
+      width: 'auto',
       data: code
     });
 
