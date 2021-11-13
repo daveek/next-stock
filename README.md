@@ -11,13 +11,13 @@ This is the solution for the Frontend Excercise, and it was generated with [Angu
 ## Development server
  - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Build and Deployment in Docker 
+## Build and Deployment in Docker 🚀 
 
 There is a option to deploy the app inside a docker container, for this:
  - Run `./build.sh` to build the image
  - Run `docker-compose up -d ` to run the container
 
-then you should navigate to the `http://localhost:8080/` where the Nginx is serving **[WORK IN PROGRESS]** 🚀
+### then you should navigate to the `http://localhost:8080/` where the Nginx is serving
 
 ## Build
 
