@@ -33,15 +33,28 @@ export class ProductComponent implements OnInit {
   }
 
   public isGood(): boolean {
-    return (this.productData!.wh_coverage > 0.5);
+    if (this.productData ){
+      return (this.productData?.wh_coverage > 0.5);
+    } else {
+      return false;
+    }
+
   }
 
   public isNotGood(): boolean {
-    return (this.productData!.wh_coverage <= 0.5);
+    if (this.productData) {
+      return (this.productData?.wh_coverage <= 0.5);
+    } else {
+      return false;
+    }
   }
 
   convertPercent(): number {
-    return this.productData!.stockout_rate * 100;
+    if (this.productData) {
+      return this.productData?.stockout_rate * 100;
+    } else {
+      return 0;
+    }
   }
 
 }

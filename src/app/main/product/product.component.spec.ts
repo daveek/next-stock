@@ -4,23 +4,23 @@ import { Product, Size } from 'src/app/shared/models/product';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProductComponent } from './product.component';
 
-describe('ProductComponent', () => {
+const PRODUCT_MOCK_1: Product = {
+  code: 123,
+  name: 'ACME 1',
+  price: 1.99,
+  sales_ranking: 8,
+  stockout_rate: 0.17,
+  wh_coverage: 0.85,
+  size_stock: new Map([
+    ['S', 1],
+    ['M', 2],
+    ['L', 0],
+    ['XL', 4],
+    ['XXL', 0]
+  ])
+};
 
-  const PRODUCT_MOCK_1: Product = {
-    code: 123,
-    name: 'ACME 1',
-    price: 1.99,
-    sales_ranking: 8,
-    stockout_rate: 0.17,
-    wh_coverage: 0.85,
-    size_stock: new Map([
-      ['S', 1],
-      ['M', 2],
-      ['L', 0],
-      ['XL', 4],
-      ['XXL', 0]
-    ])
-  }
+describe('ProductComponent', () => {
 
   let testHostComponent: TestHostComponent;
   let testHostFixture: ComponentFixture<TestHostComponent>;
@@ -44,7 +44,7 @@ describe('ProductComponent', () => {
 
     fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;
-
+    component.productData = PRODUCT_MOCK_1;
     fixture.detectChanges();
   });
 
@@ -58,7 +58,7 @@ describe('ProductComponent', () => {
   it('should whCover be:  Excellent', () => {
     component.productData = PRODUCT_MOCK_1;
     console.warn(`Wh_CO: ${component.productData.wh_coverage}`);
-    component.productData.wh_coverage = 0.95;
+    component.productData.wh_coverage = 0.99;
     let stringEval = component.evalWhCover(component.productData.wh_coverage);
 
     expect(stringEval).toEqual('Excellent');
@@ -67,7 +67,7 @@ describe('ProductComponent', () => {
   it('should whCover be: Very Low', () => {
     component.productData = PRODUCT_MOCK_1;
     console.warn(`Wh_CO: ${component.productData.wh_coverage}`);
-    component.productData.wh_coverage = 0.15;
+    component.productData.wh_coverage = 0.00;
     let stringEval = component.evalWhCover(component.productData.wh_coverage);
 
     expect(stringEval).toEqual('Very Low');
@@ -77,7 +77,7 @@ describe('ProductComponent', () => {
     spyOn(component, 'isGood').and.callThrough();
     component.productData = PRODUCT_MOCK_1;
     console.warn(`Wh_CO: ${component.productData.wh_coverage}`);
-    component.productData.wh_coverage = 0.87;
+    component.productData.wh_coverage = 0.51;
 
     expect(component.isGood()).toBeTruthy();
   });
@@ -86,7 +86,7 @@ describe('ProductComponent', () => {
     spyOn(component, 'isNotGood').and.callThrough();
     component.productData = PRODUCT_MOCK_1;
     console.warn(`Wh_CO: ${component.productData.wh_coverage}`);
-    component.productData.wh_coverage = 0.23;
+    component.productData.wh_coverage = 0.50;
 
     expect(component.isNotGood()).toBeTruthy();
   });
