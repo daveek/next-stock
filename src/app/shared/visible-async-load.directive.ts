@@ -1,0 +1,97 @@
+import { AfterViewInit, Directive, Input, OnDestroy, OnInit, Output, EventEmitter, ElementRef } from "@angular/core";
+import { Subject } from "rxjs";
+import { filter } from "rxjs/operators";
+/*
+ * Directive which can applied on any element.
+ * After applying the directive it's possible to add a (visible) event listener.
+ * This one gets called once this element appears on the users screen.
+ * IMPORTANT: This method only gets executed once it appears on the screen. If an
+ * element (e.g. a list) appears for a secodn time, for example when you're scrolling
+ * up and down it still gets executed once.
+ * Usage:
+ * <pre>
+ * {@code
+ *  <div observeVisibility (visible)="onAppear()"></div>
+ * }
+ * </pre>
+ */
+@Directive({
+    selector: "[observeVisibility]"
+})
+export class ObserveVisibilityDirective implements OnDestroy, OnInit, AfterViewInit {
+    @Input() threshold = 1;
+
+    @Output() visible = new EventEmitter<HTMLElement>();
+
+    private observer: IntersectionObserver | undefined;
+    private subject$ = new Subject<{
+        entry: IntersectionObserverEntry;
+        observer: IntersectionObserver;
+    }>();
+
+    constructor(private element: ElementRef) {}
+
+    ngOnInit() {
+        this.createObserver();
+    }
+
+    ngAfterViewInit() {
+        this.startObservingElements();
+    }
+
+    ngOnDestroy() {
+        if (this.observer) {
+            this.observer.disconnect();
+            this.observer = undefined;
+        }
+
+        this.subject$.next();
+        this.subject$.complete();
+    }
+
+    private isVisible(element: HTMLElement) {
+        return new Promise(resolve => {
+            const observer = new IntersectionObserver(([entry]) => {
+                resolve(entry.intersectionRatio === 1);
+                observer.disconnect();
+            });
+
+            observer.observe(element);
+        });
+    }
+
+    private createObserver() {
+        const options = {
+            rootMargin: "100px",
+            threshold: this.threshold
+        };
+
+        const isIntersecting = (entry: IntersectionObserverEntry) =>
+            entry.isIntersecting || entry.intersectionRatio > 0;
+        this.observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (isIntersecting(entry)) {
+                    this.subject$.next({ entry, observer });
+                }
+            });
+        }, options);
+    }
+
+    private startObservingElements() {
+        if (!this.observer) {
+            return;
+        }
+
+        this.observer.observe(this.element.nativeElement);
+
+        this.subject$.pipe(filter(Boolean)).subscribe(async ({ entry, observer }) => {
+            const target = entry.target as HTMLElement;
+            const isStillVisible = await this.isVisible(target);
+
+            if (isStillVisible) {
+                this.visible.emit(target);
+                observer.unobserve(target);
+            }
+        });
+    }
+}
