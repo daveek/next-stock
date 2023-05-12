@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ProductComponent } from './main/product/product.component';
 import { ConfirmationComponent } from './main/confirmation/confirmation.component';
+import { ScrollDispatcher, ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { ConfirmationComponent } from './main/confirmation/confirmation.componen
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ScrollingModule,
   ],
-  providers: [],
+  providers: [ScrollDispatcher],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
