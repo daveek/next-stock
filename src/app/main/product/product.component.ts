@@ -4,17 +4,16 @@ import { Product } from 'src/app/shared/models/product';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-
   @Input() productData: Product | null | undefined;
 
   stockRatePercent: number = 0;
 
   constructor() {
     // Intentded
-   }
+  }
 
   ngOnInit(): void {
     // Intended
@@ -33,17 +32,16 @@ export class ProductComponent implements OnInit {
   }
 
   public isGood(): boolean {
-    if (this.productData ){
-      return (this.productData?.wh_coverage > 0.5);
+    if (this.productData) {
+      return this.productData?.wh_coverage > 0.5;
     } else {
       return false;
     }
-
   }
 
   public isNotGood(): boolean {
     if (this.productData) {
-      return (this.productData?.wh_coverage <= 0.5);
+      return this.productData?.wh_coverage <= 0.5;
     } else {
       return false;
     }
@@ -56,5 +54,4 @@ export class ProductComponent implements OnInit {
       return 0;
     }
   }
-
 }

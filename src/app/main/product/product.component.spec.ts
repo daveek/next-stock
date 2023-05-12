@@ -2,6 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Product, Size } from 'src/app/shared/models/product';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './product.component';
 
 const PRODUCT_MOCK_1: Product = {
@@ -16,12 +17,11 @@ const PRODUCT_MOCK_1: Product = {
     ['M', 2],
     ['L', 0],
     ['XL', 4],
-    ['XXL', 0]
-  ])
+    ['XXL', 0],
+  ]),
 };
 
 describe('ProductComponent', () => {
-
   let testHostComponent: TestHostComponent;
   let testHostFixture: ComponentFixture<TestHostComponent>;
 
@@ -32,9 +32,8 @@ describe('ProductComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ProductComponent, TestHostComponent],
       imports: [HttpClientTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-    .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -67,7 +66,7 @@ describe('ProductComponent', () => {
   it('should whCover be: Very Low', () => {
     component.productData = PRODUCT_MOCK_1;
     console.warn(`Wh_CO: ${component.productData.wh_coverage}`);
-    component.productData.wh_coverage = 0.00;
+    component.productData.wh_coverage = 0.0;
     let stringEval = component.evalWhCover(component.productData.wh_coverage);
 
     expect(stringEval).toEqual('Very Low');
@@ -86,16 +85,14 @@ describe('ProductComponent', () => {
     spyOn(component, 'isNotGood').and.callThrough();
     component.productData = PRODUCT_MOCK_1;
     console.warn(`Wh_CO: ${component.productData.wh_coverage}`);
-    component.productData.wh_coverage = 0.50;
+    component.productData.wh_coverage = 0.5;
 
     expect(component.isNotGood()).toBeTruthy();
   });
 
   @Component({
     selector: `host-component`,
-    template: `<app-product [productData]="PRODUCT_MOCK_1"></app-product>`
+    template: `<app-product [productData]="PRODUCT_MOCK_1"></app-product>`,
   })
-  class TestHostComponent {
-  }
-
+  class TestHostComponent {}
 });

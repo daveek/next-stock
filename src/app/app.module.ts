@@ -13,15 +13,16 @@ import { ConfirmationComponent } from './main/confirmation/confirmation.componen
     AppComponent,
     MainComponent,
     ProductComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
   ],
   imports: [
     MaterialsModule,
     BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

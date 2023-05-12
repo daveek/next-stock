@@ -1,12 +1,12 @@
 Interview Test
 
-Nextail executes a stock analysis every day in order to determine which products suffer major stockouts in customer's stores.
+Next executes a stock analysis every day in order to determine which products suffer major stockouts in customer's stores.
 This information is critical to store managers in order to improve sales, so it was decided to make a new report.
 Store managers will check this report to get information about this products, and when they are done with them, will mark them as complete.
 
 Business requirements:
 
-This report will show products with major stockouts ordered by sales ranking. 
+This report will show products with major stockouts ordered by sales ranking.
 Every product will be represented with a card showing the info provided in example image.
 Any warehouse coverage below 50% is considered to be "Very low".
 When a user hovers cursor on product card a "Mark Complete" label must be shown.

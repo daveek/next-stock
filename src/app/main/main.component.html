@@ -1,6 +1,15 @@
 <div class="products-container">
-    <app-product *ngFor="let product of productsList"
-     [productData]="product"
-     (click)="comfirmProduct(product.code)"></app-product>
+  <app-product
+    *ngFor="let product of productsList; let i = index"
+    attr.aria-label="product-{{ i }}"
+    [productData]="product"
+    (click)="comfirmProduct(product.code)"
+  ></app-product>
 </div>
-<h1 *ngIf="productsList.length == 0" class="no-products">NO PRODUCTS TO SHOW IN THIS REPORT</h1>
+<h1
+  *ngIf="productsList.length == 0"
+  attr-aria-label="NO PRODUCTS TO SHOW IN THIS REPORT"
+  class="no-products"
+>
+  NO PRODUCTS TO SHOW IN THIS REPORT
+</h1>
