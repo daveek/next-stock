@@ -21,19 +21,22 @@ export class SortingService {
    * D.lenght the "end" the lenght of the Array
    * eg.:  SortingService.mergeSort(0, D.length);
    */
-  function mergeSort(start: any, end: any, D: Array<any>) {
-
+  public mergeSort(start: any, end: any, D: Array<any>) {
     if (Math.abs(end - start) <= 1) return [];
     const middle = Math.ceil((start + end) / 2);
 
-    mergeSort(start, middle, D);
-    mergeSort(middle, end, D);
+    this.mergeSort(start, middle, D);
+    this.mergeSort(middle, end, D);
 
-
-    return mergeSort.merge(start, middle, end, D);
+    return this.mergeSortMerge(start, middle, end, D);
   }
 
-  mergeSort.merge = (start, middle, end, D) => {
+  private mergeSortMerge = (
+    start: any,
+    middle: any,
+    end: any,
+    D: Array<any>
+  ) => {
     const leftSize = middle - start;
     const rightSize = end - middle;
     const maxSize = Math.max(leftSize, rightSize);
@@ -65,12 +68,10 @@ export class SortingService {
         D[start + i] = right.shift();
       }
 
-
       i++;
     }
 
     const tempArray = [];
     for (i = start; i < end; i++) tempArray.push(D[i]);
   };
-
 }

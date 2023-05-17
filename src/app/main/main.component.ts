@@ -17,6 +17,7 @@ import {
   CdkVirtualScrollViewport,
   ScrollDispatcher,
 } from '@angular/cdk/scrolling';
+import { SortingService } from '../shared/services/sorting.service';
 
 @Component({
   selector: 'app-main',
@@ -33,12 +34,14 @@ export class MainComponent implements OnInit {
 
   searchPageNumber: number;
   pagesize = 4;
+  dList = [8, 5, 1, 3, 6, 9];
 
   constructor(
     private scrollDispatcher: ScrollDispatcher,
     private cd: ChangeDetectorRef,
     private zone: NgZone,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private _sortingService: SortingService
   ) {
     this.searchPageNumber = 0;
   }
@@ -55,9 +58,12 @@ export class MainComponent implements OnInit {
     /***
      * Method to order the products by Sales Ranking
      **/
-
     this.orderProductsBySalesRanking();
     this.nextSearchPage(this.searchPageNumber);
+
+    console.log('D Sorting');
+    this._sortingService.mergeSort(0, this.dList.length, this.dList);
+    console.log(this.dList);
   }
 
   ngAfterViewInit(): void {
