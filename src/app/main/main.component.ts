@@ -93,10 +93,10 @@ export class MainComponent implements OnInit {
     this.getResults(pageNumber).subscribe((pagedResults) => {
       this.zone.run(() => {
         setTimeout(() => {
-          console.log('pagedResults :', pagedResults);
-          pagedResults.forEach((ele) => {
-            this.productsList.push(ele);
-          });
+          console.log('Call for more :', pagedResults);
+          // pagedResults.forEach((ele) => {
+          //   this.productsList.push(ele);
+          // });
         }, 200); // mimic API time delay
       });
     });
