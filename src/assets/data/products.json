@@ -3,8 +3,8 @@
     "code": 182295,
     "name": "ACME PRODUCT 02509",
     "price": 22.99,
-    "sales_ranking": 2,    
-    "stockout_rate": 0.4010,
+    "sales_ranking": 2,
+    "stockout_rate": 0.401,
     "wh_coverage": 0.25,
     "size_stock": {
       "S": 1,
@@ -18,7 +18,7 @@
     "code": 182297,
     "name": "ACME PRODUCT 02511",
     "price": 22.99,
-    "sales_ranking": 1,    
+    "sales_ranking": 1,
     "stockout_rate": 0.3473,
     "wh_coverage": 0.18,
     "size_stock": {
@@ -32,8 +32,8 @@
   {
     "code": 182943,
     "name": "ACME PRODUCT 03118",
-    "price": 79.90,
-    "sales_ranking": 4,    
+    "price": 79.9,
+    "sales_ranking": 4,
     "stockout_rate": 0.2052,
     "wh_coverage": 0.41,
     "size_stock": {
@@ -48,7 +48,7 @@
     "code": 183395,
     "name": "ACME PRODUCT 03554",
     "price": 19.99,
-    "sales_ranking": 3,        
+    "sales_ranking": 3,
     "stockout_rate": 0.5261,
     "wh_coverage": 0.75,
     "size_stock": {
@@ -58,5 +58,5 @@
       "XL": 1,
       "XXL": 0
     }
-  }      
+  }
 ]
